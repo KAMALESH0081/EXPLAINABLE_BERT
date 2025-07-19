@@ -1,4 +1,4 @@
-# 🔍 Explainable BERT (Under Development)
+#  Explainable BERT (Under Development)
 
 ⚠️ **NOTE:** This is a custom research-driven project aiming to enhance explainability in Transformer-based architectures. A minor but **novel architectural change** has been made to standard BERT in order to **highlight the tokens most responsible for a given prediction** (e.g., in sentiment classification).
 
@@ -8,7 +8,7 @@
 
 ---
 
-## 🚀 Goals
+##  Goals
 
 - Build a lightweight BERT model with built-in interpretability
 - Highlight token-level contributions during inference
