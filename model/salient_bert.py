@@ -95,21 +95,8 @@ class Block(nn.Module):
         x = self.norm2(x + self.dropout(ff_output))
         return x
 
-class FinalSingleHeadAttention(nn.Module):
-    def __init__(self, d_model, d_ff, dropout=0.1):
-        super(FinalSingleHeadAttention, self).__init__()
-        self.self_attn = MultiHeadSelfAttention(d_model, 1, dropout)
-        self.ff = FeedForward(d_model, d_ff)
-        self.norm1 = nn.LayerNorm(d_model)
-        self.norm2 = nn.LayerNorm(d_model)
-        self.dropout = nn.Dropout(dropout)
 
-    def forward(self, x, tgt_mask, return_attention_weights):
-        self_attn_output = self.self_attn(x ,x, x, tgt_mask, return_attention_weights)
-        x = self.norm1(x + self.dropout(self_attn_output))
-        ff_output = self.ff(x)
-        x = self.norm2(x + self.dropout(ff_output))
-        return x
+'''Main Modification will be here'''
 
 class XAIBERT(nn.Module):
     def __init__(self, n_class, vocab_size, d_model, n_heads, d_ff, n_layers, dropout=0.1):
@@ -117,7 +104,7 @@ class XAIBERT(nn.Module):
         self.embedding = nn.Embedding(vocab_size, d_model)
         self.positional_encoding = PositionalEncoding(d_model, max_len=64)
         self.layers = nn.ModuleList([Block(d_model, n_heads, d_ff, dropout) for _ in range(n_layers)])
-        self.final_atten = FinalSingleHeadAttention(d_model, d_ff, dropout)
+        '''Main Modification will be here'''
         self.fc_out = nn.Linear(d_model, n_class)
         
     def forward(self, tgt, tgt_mask, return_attention_weights = False):
@@ -125,7 +112,7 @@ class XAIBERT(nn.Module):
         x = self.positional_encoding(x)
         for layer in self.layers:
             x = layer(x, tgt_mask)
-        x = self.final_atten(x, tgt_mask, return_attention_weights)
+        '''Main Modification will be here'''        
         cls_token = x[:, 0, :]
         return self.fc_out(cls_token)
 

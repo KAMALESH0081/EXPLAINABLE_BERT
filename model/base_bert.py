@@ -1,9 +1,12 @@
 #BASE MODEL ARCHITECTURE
-
-import torch
 import os
 import yaml
 from num2words import num2words
+import math
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
 
 # Path to your YAML config
 config_path = os.path.join(os.path.dirname(__file__), "..", "config", "base_bert.yaml")
@@ -15,9 +18,6 @@ with open(os.path.abspath(config_path)) as f:
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
-import torch.nn as nn
-import math
-import torch.nn.functional as F
 
 class PositionalEncoding(nn.Module):
     def __init__(self, d_model, max_len=64):

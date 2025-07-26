@@ -2,6 +2,6 @@ vocab_size : 30522
 d_model : 256
 n_heads : 4
 d_ff : 1024
-n_layers :  3
+n_layers :  4
 dropout : 0.1
 n_class : 2
