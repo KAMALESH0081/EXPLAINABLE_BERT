@@ -90,10 +90,13 @@ This will help users **visually understand how decisions are made**, right in th
 
 ## 🙌 About Me
 
-This project was designed and built by [**Kamal**](https://www.linkedin.com/in/YOUR-LINKEDIN).  
-I’m an engineering student, AI enthusiast, and future-focused builder — exploring ways to make deep learning more interpretable and human-aligned.
+This project was designed and built by [**Kamal**](https://www.linkedin.com/in/kamalesh007/) — an engineering student and AI builder working across the stack:  
+Deep learning, NLP, CV, Transformers, XAI, and model deployment.
 
----
+I'm passionate about building **original, useful, and scalable AI systems** — from **research-inspired ideas** to **real-world implementation**.
+
+If you're working on machine learning, AI infrastructure, or experimental model design — feel free to connect and exchange ideas.
+
 
 
 
